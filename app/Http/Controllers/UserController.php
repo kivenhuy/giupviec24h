@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use DataTables;
+
 
 class UserController extends Controller
 {
@@ -80,6 +82,7 @@ class UserController extends Controller
             $user = User::create([
                 'first_name'    => $request->first_name,
                 'last_name'     => $request->last_name,
+                'full_name'     => $request->first_name. '' .$request->last_name,
                 'email'         => $request->email,
                 'mobile_number' => $request->mobile_number,
                 'role_id'       => $request->role_id,
@@ -249,5 +252,18 @@ class UserController extends Controller
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
+
+    public function dtajax(Request $request){
+    if ($request->ajax())
+            {
+                
+                $out = DataTables::of(User::All())->make(true);
+                $data = $out->getData();
+                $out->setData($data);
+                // print_r($out);
+                // exit;
+                return $out;
+            }
+        }
 
 }
