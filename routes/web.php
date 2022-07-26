@@ -52,6 +52,8 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
     Route::post('/upload-users', [UserController::class, 'uploadUsers'])->name('upload');
 
     Route::get('export/', [UserController::class, 'export'])->name('export');
-
 });
 
+Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
+    Route::get('/booking/create', [App\Http\Controllers\BookingController::class,'create'])->name('booking.create');
+    Route::post('/booking/store', [App\Http\Controllers\BookingController::class,'store'])->name('booking.store');

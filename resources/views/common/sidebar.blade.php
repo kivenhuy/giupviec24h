@@ -43,6 +43,21 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#taTpDropDown1"
+            aria-expanded="true" aria-controls="taTpDropDown">
+            <i class="fas fa-user-alt"></i>
+            <span>Working Management</span>
+        </a>
+        <div id="taTpDropDown1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Working Management:</h6>
+                <a class="collapse-item" href="{{ route('booking.index') }}">Index</a>
+                <a class="collapse-item" href="{{ route('booking.create') }}">Add New</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
