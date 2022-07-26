@@ -46,7 +46,7 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
     Route::put('/update/{user}', [UserController::class, 'update'])->name('update');
     Route::delete('/delete/{user}', [UserController::class, 'delete'])->name('destroy');
     Route::get('/update/status/{user_id}/{status}', [UserController::class, 'updateStatus'])->name('status');
-
+    Route::get('/dtajax', [UserController::class, 'dtajax'])->name('dtajax');
     
     Route::get('/import-users', [UserController::class, 'importUsers'])->name('import');
     Route::post('/upload-users', [UserController::class, 'uploadUsers'])->name('upload');
